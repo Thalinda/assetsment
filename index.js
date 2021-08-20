@@ -57,13 +57,11 @@ app.use('/api-docs',swaggerExpress.serve,swaggerExpress.setup(swaggerdoc))
  *       - in: body
  *         description: Add new order pass array of object
  *         required: true
- *         name: items
  *         schema:
  *           type: object
  *           items:
  *              oneOf:
  *                - $ref: '#/definitions/items'
- *          example:
  * 
  *                   
  *    responses:
