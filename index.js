@@ -15,23 +15,55 @@ const swaggerOptions = {
          servers:["http://loclhost:8081"]
       }
    },
-   apis: ['./routes*.js'],
+   apis: ['index.js'],
 }
 
 const swaggerdoc = swaggerJSdoc(swaggerOptions)
 console.log(swaggerdoc)
 app.use('/api-docs',swaggerExpress.serve,swaggerExpress.setup(swaggerdoc))
 
+
+// Routes
 /**
  * @swagger
  * /orders:
- *    get:
- *     description: Use to request
- *     responses:
- *       '200':
- *          description:A successfully respine
- *
-*/
+ *  get:
+ *    description: Use to request all customers
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+
+
+// Routes
+/**
+ * @swagger
+ * /orders/get-orders:
+ *  get:
+ *    description: Use to request all customers
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+
+
+// Routes
+/**
+ * @swagger
+ * /orders/add-order:
+ *  put:
+ *    description: Add new Order
+ *    parameters:
+ *      - name: items
+ *        in: query
+ *        description: items of the order
+ *        required: true
+ *        schema:
+ *          type: array
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
 app.use('/orders',orders);
 
 module.exports = server = app.listen(8081, function () {
