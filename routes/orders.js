@@ -12,13 +12,18 @@ orders.get('/', function (req, res) {
     })
  })
 
- orders.post('/add-order', function (req, res) {
+ orders.put('/add-order', function (req, res) {
+  
+    if(req.body.items.length>0){
     dobj.InsertNewOrder(req.body,1,(items)=>{
-        res.send({'state':true})
+        res.send({'state':true,message:"Order Placed successfully"})
     })
+}else{
+    res.send({'state':false,message:"No Order items"})
+}
  })
 
- orders.post('/get-orders', function (req, res) {
+ orders.get('/get-orders', function (req, res) {
     dobj.SelectOrder((items)=>{
         res.send({'state':true,items:items})
     })

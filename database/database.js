@@ -143,7 +143,7 @@ var database = new sqlite3.Database(path.resolve(__dirname,'database.db'));
         let orders = [];
         database.all(order,[],(err,items_list)=>{
             items_list.forEach(element => {
-                console.log(element.order_id)
+               
             this.SelectOrderedItems(element.order_id,(res)=>{
                 orders.push({order_id:element.order_id,orders:res});
                 if(orders.length===items_list.length){
