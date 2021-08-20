@@ -1,0 +1,11 @@
+Download the Packages
+Run npm install
+
+Then 
+node index.js to start the server and go to localohst:8081
+
+Once the application start running system will create sample SQLite database with sample data set
+
+/orders/ will return all products
+/add-products will add products
+/get-orders will show the products
