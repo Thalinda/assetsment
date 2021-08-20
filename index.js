@@ -60,14 +60,37 @@ app.use('/api-docs',swaggerExpress.serve,swaggerExpress.setup(swaggerdoc))
  *         schema:
  *           type: object
  *           items:
- *              oneOf:
- *                - $ref: '#/definitions/items'
  * 
  *                   
  *    responses:
  *      '200':
  *        description: A successful response
  */
+
+/**
+* @swagger
+*  /api/addData:
+*    post:
+*      summary: Creates a new message.
+*      consumes:
+*        - application/json
+*      tags:
+*        - Create a new message
+*      parameters:
+*        - in: body
+*          name: object
+*          description: The user to create.
+*          schema:
+*            type: object
+*            required:
+*              - items
+*            properties:
+*              items:
+*                type: string
+*      responses:
+*        201:
+*          description: New message created!
+*/
 app.use('/orders',orders);
 
 module.exports = server = app.listen(8081, function () {
