@@ -13,7 +13,7 @@ orders.get('/', function (req, res) {
  })
 
  orders.put('/add-order', function (req, res) {
-  
+    console.log(req.body)
     if(req.body.items.length>0){
     dobj.InsertNewOrder(req.body,1,(items)=>{
         res.send({'state':true,message:"Order Placed successfully"})

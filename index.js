@@ -54,12 +54,18 @@ app.use('/api-docs',swaggerExpress.serve,swaggerExpress.setup(swaggerdoc))
  *  put:
  *    description: Add new Order
  *    parameters:
- *      - name: items
- *        in: query
- *        description: items of the order
- *        required: true
- *        schema:
- *          type: array
+ *       - in: body
+ *         description: Add new order pass array of object
+ *         required: true
+ *         name: items
+ *         schema:
+ *           type: object
+ *           items:
+ *              oneOf:
+ *                - $ref: '#/definitions/items'
+ *          example:
+ * 
+ *                   
  *    responses:
  *      '200':
  *        description: A successful response
